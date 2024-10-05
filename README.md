@@ -14,32 +14,32 @@ Aplikasi ini adalah API sederhana yang dibangun menggunakan Golang dan Gin Frame
 
 1. **Clone repositori ini**:
 
-```bash
-  git clone https://github.com/username/repo-name.git
-  cd repo-name
-```
+   ```bash
+     git clone https://github.com/Nurdiansyah15/gin-project.git
+     cd gin-project
+   ```
 
 2. **Membuat file `.env`**:
 
-Buat file `.env` di root proyek Anda dan tambahkan variabel berikut:
+   Buat file `.env` di root proyek Anda dan tambahkan variabel berikut:
 
-```plaintext
-DB_USER=root
-DB_PASSWORD=root
-DB_HOST=localhost
-DB_PORT=3306
-DB_NAME=gin_project_db
-JWT_SECRET=akudankamuadalahmustahil
-```
+   ```plaintext
+   DB_USER=root
+   DB_PASSWORD=root
+   DB_HOST=localhost
+   DB_PORT=3306
+   DB_NAME=gin_project_db
+   JWT_SECRET=akudankamuadalahmustahil
+   ```
 
-Sesuaikan password dan username Anda.
-Jangan lupa membuat database MySQL yang sesuai.
+   Sesuaikan password dan username Anda.
+   Jangan lupa membuat database MySQL yang sesuai.
 
-3.  **Jalankan aplikasi**:
+3. **Jalankan aplikasi**:
 
-```bash
-go run main.go
-```
+   ```bash
+   go run main.go
+   ```
 
 Aplikasi akan tersedia di `http://localhost:8080`
 
