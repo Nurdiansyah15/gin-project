@@ -10,37 +10,38 @@ Aplikasi ini adalah API sederhana yang dibangun menggunakan Golang dan Gin Frame
 - Pembayaran antar pengguna
 - Logout dan manajemen sesi dengan JWT
 
-## Prasyarat
-
-- [Docker](https://www.docker.com/) terinstal di sistem Anda.
-
 ## Menjalankan Aplikasi
 
 1. **Clone repositori ini**:
 
-   ```bash
-   git clone https://github.com/username/repo-name.git
-   cd repo-name
-   ```
+```bash
+  git clone https://github.com/username/repo-name.git
+  cd repo-name
+```
 
 2. **Membuat file `.env`**:
 
-   Buat file `.env` di root proyek Anda dan tambahkan variabel berikut:
+Buat file `.env` di root proyek Anda dan tambahkan variabel berikut:
 
-   ```plaintext
-   DATABASE_URL=mysql://root:password@mysql:3306/gindb
-   JWT_SECRET=mysecretkey
-   ```
+```plaintext
+DB_USER=root
+DB_PASSWORD=root
+DB_HOST=localhost
+DB_PORT=3306
+DB_NAME=gin_project_db
+JWT_SECRET=akudankamuadalahmustahil
+```
 
-   Pastikan untuk mengganti `password` sesuai dengan yang Anda inginkan.
+Sesuaikan password dan username Anda.
+Jangan lupa membuat database MySQL yang sesuai.
 
-3. **Jalankan aplikasi menggunakan Docker Compose**:
+3.  **Jalankan aplikasi**:
 
-   ```bash
-   docker-compose up --build
-   ```
+```bash
+go run main.go
+```
 
-   Aplikasi akan tersedia di `http://localhost:8080` dan database MySQL di `localhost:3306`.
+Aplikasi akan tersedia di `http://localhost:8080`
 
 ## Dokumentasi Endpoint
 
@@ -49,6 +50,7 @@ Berikut adalah daftar endpoint yang tersedia dalam aplikasi:
 ### Public Routes
 
 - **POST** `/login`
+
   - **Deskripsi**: Melakukan login pengguna.
   - **Request Body**:
     ```json
@@ -77,12 +79,14 @@ Berikut adalah daftar endpoint yang tersedia dalam aplikasi:
 ### Protected Routes (Memerlukan Token JWT)
 
 - **GET** `/users`
+
   - **Deskripsi**: Mengambil daftar semua pengguna.
   - **Response**:
     - Status 200: Berhasil mengembalikan daftar pengguna.
     - Status 401: Token tidak valid atau tidak ada.
 
 - **POST** `/users`
+
   - **Deskripsi**: Membuat pengguna baru (admin hanya).
   - **Request Body**:
     ```json
@@ -96,6 +100,7 @@ Berikut adalah daftar endpoint yang tersedia dalam aplikasi:
     - Status 401: Token tidak valid atau tidak ada.
 
 - **GET** `/history`
+
   - **Deskripsi**: Mengambil riwayat tindakan pengguna.
   - **Response**:
     - Status 200: Berhasil mengembalikan riwayat.
@@ -110,12 +115,13 @@ Berikut adalah daftar endpoint yang tersedia dalam aplikasi:
 ### Payment Routes
 
 - **POST** `/payments`
+
   - **Deskripsi**: Membuat pembayaran antar pengguna.
   - **Request Body**:
     ```json
     {
-      "receiver_id": "uint",  // ID pengguna penerima
-      "amount": "float64"     // Jumlah yang akan dibayarkan
+      "receiver_id": "uint", // ID pengguna penerima
+      "amount": "float64" // Jumlah yang akan dibayarkan
     }
     ```
   - **Response**:
@@ -128,11 +134,3 @@ Berikut adalah daftar endpoint yang tersedia dalam aplikasi:
   - **Response**:
     - Status 200: Berhasil mengembalikan riwayat pembayaran.
     - Status 401: Token tidak valid atau tidak ada.
-
-## Lisensi
-
-Aplikasi ini menggunakan lisensi MIT. Silakan lihat file `LICENSE` untuk detail lebih lanjut.
-
-## Kontak
-
-Jika Anda memiliki pertanyaan, silakan hubungi [nama Anda] di [email Anda].
